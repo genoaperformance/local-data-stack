@@ -1,6 +1,9 @@
-# dagster example
+# {{ cookiecutter.project_name }}
+---
 
-To update to the latest template
+## Data stack management
+
+To update to the latest template version
 
 ```bash
 pixi run tpl-update
@@ -17,7 +20,7 @@ cd src/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_dbt/ && d
 cd ../../../
 ```
 
-## dagster
+### dagster
 
 set `DAGSTER_HOME` to have persistent logs
 
@@ -34,16 +37,13 @@ dagster job list --location foo
 dagster job launch --location foo -j all_assets_job
 ```
 
-## docker
+### docker
 
 ```bash
 docker compose -f docker-compose.yml --profile dagster_onprem up --build
 ```
 
-
-
-
-## .env  file
+### .env  file
 
 Post install:
 
@@ -71,7 +71,7 @@ DAGSTER_IS_DEV_CLI=True
 #DAGSTER_CLOUD_GIT_BRANCH=main
 ```
 
-## cleanup
+### cleanup
 
 ```bash
 pixi run cleanup
