@@ -15,12 +15,10 @@ Slow data - similar to slow food, is healthy and allows the fast delivery of bus
 The idea of slow data refers to:
 
 - focusing on the reduction of complexity
-    - allows to reduce complex data pipelines down to a single developers notebook
-    - making complex data pipeliens testable
+  - allows to reduce complex data pipelines down to a single developers notebook
+  - making complex data pipeliens testable
 - shipping real busines value fast
 - scaling as needed via partitions and a scalable resource provider
-
-![Featured](img/featured.png)
 
 The template directly can be deployed via docker-compose.
 With only minimal adaptations you can instead deploy to kubernetes in any cloud provider.
@@ -32,7 +30,7 @@ Additionally included for secure handling of secrets:
 
 ## usage
 
-Prerequisites: 
+Prerequisites:
 
 - git
 - an installation of cruft `pip install cruft jinja2-ospath`
@@ -40,16 +38,15 @@ Prerequisites:
 - text editor of choice such as vscode
 - docker
 
-
 ```bash
 curl -fsSL https://pixi.sh/install.sh | bash
-git clone https://github.com/l-mds/local-data-stack.git
+git clone https://github.com/genoaperformance/local-data-stack.git
 cd local-data-stack
 pixi run tpl-init-cruft
 
 # alternatively:
 pip install cruft jinja2-ospath
-cruft create git@github.com:l-mds/local-data-stack.git
+cruft create https://github.com/genoaperformance/local-data-stack
 
 cd <<your project name>>
 git init
