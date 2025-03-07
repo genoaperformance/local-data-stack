@@ -3,10 +3,10 @@
     "project_name": "Local Data Stack - {{ cookiecutter.client_name }}",
     "project_slug": "lds_{{ cookiecutter.client_name.lower().replace(' ', '_') }}",
     "project_slug_pixi": "lds-{{ cookiecutter.client_name.lower().replace(' ', '-') }}",
+    "time_zone": "America/Sao_Paulo",
     "organization": "genoaperformance",
     "author": "Your name",
     "author_email": "Your@email.com",
-    "time_zone": "America/Sao_Paulo",
     "state_path": "{{ '.' | abspath }}/{{ cookiecutter.project_slug }}-z_state",
     "_extensions": [
       "jinja2_ospath.extensions.OSPathExtension"
