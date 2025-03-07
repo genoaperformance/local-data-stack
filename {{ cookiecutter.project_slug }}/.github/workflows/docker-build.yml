@@ -12,8 +12,8 @@ env:
 jobs:
     build-push:
         env:
-          USER: ${{ secrets.PRIVATE_REPO_USER }}
-          TOKEN: ${{ secrets.PRIVATE_REPO_SECRET }}
+          USER: {% raw %}${{ secrets.PRIVATE_REPO_USER }}{% endraw %}
+          TOKEN: {% raw %}${{ secrets.PRIVATE_REPO_SECRET }}{% endraw %}
 
         permissions:
           contents: read
@@ -33,15 +33,15 @@ jobs:
         - name: Log in to Genoa Performance private registry
           uses: docker/login-action@v2
           with:
-            registry: ${{ env.CONTAINER_REGISTRY_SERVER}}
-            username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
-            password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+            registry: {% raw %}${{ env.CONTAINER_REGISTRY_SERVER}}{% endraw %}
+            username: {% raw %}${{ secrets.CONTAINER_REGISTRY_USERNAME }}{% endraw %}
+            password: {% raw %}${{ secrets.CONTAINER_REGISTRY_PASSWORD }}{% endraw %}
 
         - name: Build and push container image
           uses: docker/build-push-action@v4
           with:
             push: true
             tags: |
-                ${{ env.CONTAINER_REGISTRY_SERVER }}/${{ env.CONTAINER_IMAGE }}:${{ steps.vars.outputs.last_commit_hash }}
-                ${{ env.CONTAINER_REGISTRY_SERVER }}/${{ env.CONTAINER_IMAGE }}:latest
+                {% raw %}${{ env.CONTAINER_REGISTRY_SERVER }}{% endraw %}/{% raw %}${{ env.CONTAINER_IMAGE }}{% endraw %}:{% raw %}${{ steps.vars.outputs.last_commit_hash }}{% endraw %}
+                {% raw %}${{ env.CONTAINER_REGISTRY_SERVER }}{% endraw %}/{% raw %}${{ env.CONTAINER_IMAGE }}{% endraw %}:latest
             file: ./Dockerfile
