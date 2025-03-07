@@ -1,7 +1,7 @@
 {
     "client_name": "",
     "project_name": "Local Data Stack - {{ cookiecutter.client_name }}",
-    "project_slug": "lds-{{ cookiecutter.client_name.lower().replace(' ', '_') }}",
+    "project_slug": "lds_{{ cookiecutter.client_name.lower().replace(' ', '_') }}",
     "project_slug_pixi": "lds-{{ cookiecutter.client_name.lower().replace(' ', '-') }}",
     "organization": "genoaperformance",
     "author": "Your name",
