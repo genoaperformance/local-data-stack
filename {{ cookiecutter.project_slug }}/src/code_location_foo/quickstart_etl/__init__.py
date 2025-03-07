@@ -42,7 +42,7 @@ my_assets = link_code_references_to_git(
     git_branch="main",
     file_path_mapping=AnchorBasedFilePathMapping(
         local_file_anchor=Path(__file__).parent,
-        file_anchor_path_in_repository="src/code_location_foo/quickstart_etl",
+        file_anchor_path_in_repository="src/foo/quickstart_etl",
     ),
 )
 

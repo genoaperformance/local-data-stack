@@ -1,7 +1,7 @@
 flags:
   send_anonymous_usage_stats: False
 
-code_location_{{ cookiecutter.project_slug }}:
+{{ cookiecutter.project_slug }}:
   target: dev
   outputs:
     dev:

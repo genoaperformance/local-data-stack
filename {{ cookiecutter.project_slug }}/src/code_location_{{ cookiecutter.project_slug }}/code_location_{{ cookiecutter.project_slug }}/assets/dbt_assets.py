@@ -8,10 +8,10 @@ from shared_library.orchestration.dbt_translator import (
     process_dbt_assets,
 )
 
-from code_location_{{ cookiecutter.project_slug }}.resources import (
+from {{ cookiecutter.project_slug }}.resources import (
     resource_defs_by_deployment_name,
 )
-from code_location_{{ cookiecutter.project_slug }}.resources.sql_asset_keys import duckdb_bar_warehouse_name
+from {{ cookiecutter.project_slug }}.resources.sql_asset_keys import duckdb_bar_warehouse_name
 
 # TODO update to our needs https://github.com/dagster-io/hooli-data-eng-pipelines/blob/master/hooli_data_eng/assets/dbt_assets.py
 dbt_target_schema = os.environ.get("ASCII_WAREHOUSE_SCHEMA", "ascii")

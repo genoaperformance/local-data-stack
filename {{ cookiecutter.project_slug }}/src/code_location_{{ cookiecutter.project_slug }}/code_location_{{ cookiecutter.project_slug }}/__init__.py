@@ -11,7 +11,7 @@ from dagster import (
 from dagster._core.definitions.metadata.source_code import AnchorBasedFilePathMapping
 
 # from dagster_cloud.metadata.source_code import link_code_references_to_git_if_cloud
-from code_location_{{ cookiecutter.project_slug }} import assets
+from {{ cookiecutter.project_slug }} import assets
 
 from .resources import get_resources_for_deployment
 
@@ -32,7 +32,7 @@ all_assets = link_code_references_to_git(
     git_branch="main",
     file_path_mapping=AnchorBasedFilePathMapping(
         local_file_anchor=Path(__file__).parent,
-        file_anchor_path_in_repository="src/code_location_{{ cookiecutter.project_slug }}",
+        file_anchor_path_in_repository="src/{{ cookiecutter.project_slug }}",
     ),
 )
 # requires env vars for git hash to be set - but then it is more flexible see .env example
@@ -46,7 +46,7 @@ all_assets = link_code_references_to_git(
 #     # of the module containing this code - may also be set explicitly
 #     file_path_mapping=AnchorBasedFilePathMapping(
 #         local_file_anchor=Path(__file__),
-#         file_anchor_path_in_repository="prototyping/tech-exploration/dagster/src/{{ cookiecutter.project_slug }}/code_location_{{ cookiecutter.project_slug }}/__init__.py",
+#         file_anchor_path_in_repository="prototyping/tech-exploration/dagster/src/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}/__init__.py",
 #     ),
 # )
 

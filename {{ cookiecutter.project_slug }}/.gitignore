@@ -683,7 +683,7 @@ gradle-app.setting
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,intellij+all,pycharm,jupyternotebooks,deno,angular,react,reactnative
-src/{{ cookiecutter.project_slug }}/code_location_{{ cookiecutter.project_slug }}_dbt/config/.user.yml
-src/{{ cookiecutter.project_slug }}/code_location_{{ cookiecutter.project_slug }}_dbt/analytics_database_dev.duckdb
-src/{{ cookiecutter.project_slug }}/code_location_{{ cookiecutter.project_slug }}_dbt/analytics_database_prod.duckdb
+src/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_dbt/config/.user.yml
+src/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_dbt/analytics_database_dev.duckdb
+src/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_dbt/analytics_database_prod.duckdb
 z_state/

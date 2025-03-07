@@ -74,7 +74,7 @@ FROM dagster_basics AS codelocation-foo
 ENV DO_NOT_TRACK=1
 COPY --from=build /app/.pixi/envs/codelocation-foo /app/.pixi/envs/codelocation-foo
 COPY --from=build --chmod=0755 /app/entrypoint_codelocation-foo.sh /app/entrypoint.sh
-COPY --from=build /app/src/code_location_foo /app/src/code_location_foo
+COPY --from=build /app/src/foo /app/src/foo
 CMD ["dagster", "api", "grpc", "-h", "0.0.0.0", "-p", "4000", "--package-name", "quickstart_etl"]
 
 
@@ -86,10 +86,10 @@ FROM dagster_basics AS codelocation-{{ cookiecutter.project_slug_pixi }}
 ENV DO_NOT_TRACK=1
 COPY --from=build /app/.pixi/envs/codelocation-{{ cookiecutter.project_slug_pixi }} /app/.pixi/envs/codelocation-{{ cookiecutter.project_slug_pixi }}
 COPY --from=build --chmod=0755 /app/entrypoint_codelocation-{{ cookiecutter.project_slug_pixi }}.sh /app/entrypoint.sh
-COPY --from=build /app/src/code_location_{{ cookiecutter.project_slug }} /app/src/code_location_{{ cookiecutter.project_slug }}
+COPY --from=build /app/src/{{ cookiecutter.project_slug }} /app/src/{{ cookiecutter.project_slug }}
 COPY --from=build /app/src/shared_library /app/src/shared_library
-RUN cd src/code_location_{{ cookiecutter.project_slug }}/code_location_{{ cookiecutter.project_slug }}_dbt && /app/.pixi/envs/codelocation-{{ cookiecutter.project_slug_pixi }}/bin/dbt deps && /app/.pixi/envs/codelocation-{{ cookiecutter.project_slug_pixi }}/bin/dbt parse
-CMD ["dagster", "api", "grpc", "-h", "0.0.0.0", "-p", "4000", "--package-name", "code_location_{{ cookiecutter.project_slug }}"]
+RUN cd src/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_dbt && /app/.pixi/envs/codelocation-{{ cookiecutter.project_slug_pixi }}/bin/dbt deps && /app/.pixi/envs/codelocation-{{ cookiecutter.project_slug_pixi }}/bin/dbt parse
+CMD ["dagster", "api", "grpc", "-h", "0.0.0.0", "-p", "4000", "--package-name", "{{ cookiecutter.project_slug }}"]
 
 
 FROM builder_base AS all_codelocations_ci
@@ -117,7 +117,7 @@ RUN cat /shell-hook >> /app/entrypoint.sh
 RUN echo 'exec "$@"' >> /app/entrypoint.sh
 RUN chmod 0755 /app/entrypoint.sh
 
-RUN cd src/{{ cookiecutter.project_slug_pixi }}/code_location_{{ cookiecutter.project_slug_pixi }}_dbt && /app/.pixi/envs/ci-validation/bin/dbt deps && /app/.pixi/envs/ci-validation/bin/dbt parse
+RUN cd src/{{ cookiecutter.project_slug_pixi }}/{{ cookiecutter.project_slug_pixi }}_dbt && /app/.pixi/envs/ci-validation/bin/dbt deps && /app/.pixi/envs/ci-validation/bin/dbt parse
 
 # docker buildx build --target build --platform=linux/amd64 -t build:x86 -f Dockerfile .
 # docker buildx build --target build -t build:arm -f Dockerfile .

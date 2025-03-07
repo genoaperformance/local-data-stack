@@ -6,25 +6,25 @@
 - ensure that the lockfile is modified to reference the template variables like:
 
 ````
-code_location_{{ cookiecutter.project_slug_pixi }}:
-code_location_{{ cookiecutter.project_slug }}
+{{ cookiecutter.project_slug_pixi }}:
+{{ cookiecutter.project_slug }}
 ```
 
 I.e. replace occurences like:
 
 ```
 # raw:
-- pypi: ./src/code_location_local_data_stack
+- pypi: ./src/local_data_stack
 
 # replaced:
-- pypi: ./src/code_location_{{ cookiecutter.project_slug }}
+- pypi: ./src/{{ cookiecutter.project_slug }}
 
 
 # raw:
 codelocation-local-data-stack:
 
 # replaced:
-code_location_{{ cookiecutter.project_slug_pixi }}:
+{{ cookiecutter.project_slug_pixi }}:
 ```
 
 To validate dependencies (from the branch/PR) execute:

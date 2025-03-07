@@ -13,7 +13,7 @@ pixi update
 
 # launch a shell
 pixi shell --frozen -e ci-validation
-cd src/code_location_{{ cookiecutter.project_slug }}/code_location_{{ cookiecutter.project_slug }}_dbt/ && dbt deps
+cd src/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_dbt/ && dbt deps
 cd ../../../
 ```
 

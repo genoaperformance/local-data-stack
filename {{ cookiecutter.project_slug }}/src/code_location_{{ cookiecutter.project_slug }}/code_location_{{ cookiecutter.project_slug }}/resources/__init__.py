@@ -8,7 +8,7 @@ from shared_library.orchestration.resources.utils import (
 
 from .duckdb_path import DuckDBPathResource
 
-DBT_PROJECT_DIR = file_relative_path(__file__, "../../code_location_{{ cookiecutter.project_slug }}_dbt")
+DBT_PROJECT_DIR = file_relative_path(__file__, "../../{{ cookiecutter.project_slug }}_dbt")
 
 
 def get_dbt_project(target: str, DBT_PROJECT_DIR: str):
@@ -53,7 +53,7 @@ RESOURCES_PROD = {
     "ddb": DuckDBPathResource(
         file_path=str(
             Path(
-                "./{{ cookiecutter.project_slug }}/code_location_{{ cookiecutter.project_slug }}_dbt/analytics_database_prod.duckdb"
+                "./{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_dbt/analytics_database_prod.duckdb"
             )
         )
     ),

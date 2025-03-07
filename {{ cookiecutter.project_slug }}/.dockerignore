@@ -1,7 +1,7 @@
 # rsync -avn . /dev/shm --exclude-from .dockerignore 
 .pixi/envs
 .pixi/solve-group-envs
-src/{{ cookiecutter.project_slug }}/code_location_{{ cookiecutter.project_slug }}_dbt/dbt_packages
+src/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_dbt/dbt_packages
 .dockerignore
 .env
 Dockerfile

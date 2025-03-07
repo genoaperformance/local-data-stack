@@ -1,4 +1,4 @@
-from code_location_{{ cookiecutter.project_slug }} import defs
+from {{ cookiecutter.project_slug }} import defs
 from dagster import Definitions
 
 

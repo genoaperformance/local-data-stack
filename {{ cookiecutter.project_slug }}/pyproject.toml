@@ -111,7 +111,7 @@ shared-library = { path = "./src/shared_library", editable = true }
 
 [tool.pixi.feature.codelocation-foo.dependencies]
 [tool.pixi.feature.codelocation-foo.pypi-dependencies]
-quickstart_etl = { path = "./src/code_location_foo", editable = true }
+quickstart_etl = { path = "./src/foo", editable = true }
 
 [tool.pixi.feature.codelocation-{{ cookiecutter.project_slug_pixi }}.dependencies]
 [tool.pixi.feature.codelocation-{{ cookiecutter.project_slug_pixi }}.pypi-dependencies]
@@ -121,7 +121,7 @@ dagster-dbt = ">=0.25.11,<0.26"
 dagster-duckdb = ">=0.25.11,<0.26"
 dagster-duckdb-polars = ">=0.25.11,<0.26"
 dagster-duckdb-pandas = ">=0.25.11,<0.26"
-code_location_{{ cookiecutter.project_slug }} = { path = "./src/code_location_{{ cookiecutter.project_slug }}", editable = true }
+{{ cookiecutter.project_slug }} = { path = "./src/{{ cookiecutter.project_slug }}", editable = true }
 
 [tool.pixi.feature.template.dependencies]
 cruft = "~=2.16.0"
@@ -155,7 +155,7 @@ cmd = "ruff check ./src && yamllint -c yamllintconfig.yaml . && taplo check && p
 description = "Validate formatting and type check python files"
 
 [tool.pixi.tasks.test]
-cmd = "pytest --ignore=src/{{ cookiecutter.project_slug_pixi }}/code_location_{{ cookiecutter.project_slug_pixi }}_dbt/dbt_packages src"
+cmd = "pytest --ignore=src/{{ cookiecutter.project_slug_pixi }}/{{ cookiecutter.project_slug_pixi }}_dbt/dbt_packages src"
 description = "Validate formatting and type check python files"
 
 [tool.pixi.tasks.tpl-update]
@@ -193,7 +193,7 @@ exclude = [
   "build",
   "dist",
   ".pixi",
-  "src/{{ cookiecutter.project_slug }}/code_location_{{ cookiecutter.project_slug }}_dbt/dbt_packages",
+  "src/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_dbt/dbt_packages",
   "*.ipynb",
 ]
 
@@ -208,21 +208,21 @@ max-complexity = 5
 
 [tool.pyright]
 include = [
-  "src/code_location_{{ cookiecutter.project_slug }}",
-  "src/code_location_foo",
+  "src/{{ cookiecutter.project_slug }}",
+  "src/foo",
   "src/shared_library",
 ]
 exclude = [
-  "src/code_location_{{ cookiecutter.project_slug }}/build",
-  "src/code_location_foo/build",
+  "src/{{ cookiecutter.project_slug }}/build",
+  "src/foo/build",
   "src/shared_library/build",
 ]
 pythonVersion = "3.12"
 venvPath = ".pixi/envs"
 venv = "ci-validation"
 extraPaths = [
-  "src/code_location_{{ cookiecutter.project_slug }}",
-  "src/code_location_foo",
+  "src/{{ cookiecutter.project_slug }}",
+  "src/foo",
   "src/shared_library",
 ]
 
